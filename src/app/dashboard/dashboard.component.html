@@ -1,29 +1,28 @@
-
 <div class="dashboard-div">
     <div class="tabs">
-        <div *ngFor="let tab of tabs"
-            [ngClass]="tab.class"
-            [class.active]="tab === activeTab"
-            (click)="activeTab = tab">
+      <div *ngFor="let tab of tabs"
+           [ngClass]="tab.class"
+           [class.active]="tab === activeTab"
+           (click)="activeTab = tab">
         {{ tab.title }}
-        </div>
+      </div>
     </div>
-    
+  
     <div class="tab-content">
         <ng-container *ngIf="activeTab">
-          <div *ngIf="activeTab.showInput">
-            <input type="text" [(ngModel)]="newItem" placeholder="Enter a new item">
-            <button (click)="addToDoItem()">Add</button>
-          </div>
-          <div *ngIf="activeTab.title === 'To-Do List'">
-            <ul>
-              <li *ngFor="let item of toDoItems">{{ item }}</li>
-            </ul>
-          </div>
-          <div *ngIf="activeTab.title !== 'To-Do List'">
-            {{ activeTab.content }}
-          </div>
-        </ng-container>
-    </div>
-</div>
-
+            <div *ngIf="activeTab.showInput">
+              <input type="text" [(ngModel)]="newItem" placeholder="Enter a new item">
+              <button (click)="addToDoItem()">Add</button>
+            </div>
+            <div *ngIf="activeTab.title === 'To-Do List'">
+              <ul>
+                <li *ngFor="let item of toDoItems">{{ item }}</li>
+              </ul>
+            </div>
+            <div *ngIf="activeTab.title !== 'To-Do List'">
+              {{ activeTab.content }}
+            </div>
+          </ng-container>
+      </div>
+  </div>
+  

@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   tabs = [
     { title: 'All', content: 'All', class: 'tab', showInput: true },
     { title: 'Active', content: 'Active', class: 'tab', showInput: true },
@@ -16,6 +17,10 @@ export class DashboardComponent {
   toDoItems: string[] = [];
   newItem: string = '';
 
+  ngOnInit() {
+    // Initialize component logic here
+  }
+
   addToDoItem() {
     if (this.newItem) {
       this.toDoItems.push(this.newItem);
@@ -23,7 +28,3 @@ export class DashboardComponent {
     }
   }
 }
-
-// The template now checks the showInput property of the active tab to determine whether to display the input field and button. Additionally, the addToDoItem function is responsible for adding the new to-do item to the toDoItems array when the button is clicked.
-
-// Now, the input field and button will only be displayed in the "All" and "Active" tabs, allowing the user to add new to-do items specifically in those tabs.
